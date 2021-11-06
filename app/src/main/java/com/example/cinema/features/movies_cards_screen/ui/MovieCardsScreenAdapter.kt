@@ -40,7 +40,6 @@ class MovieCardsScreenAdapter(private var cards: List<MovieCardDomainModel>) : R
         holder.item_title.text    = cards[position].title
         holder.item_overview.text = cards[position].overview
         holder.item_Image.loadImage(cards[position].httpPosterPath)
-        //+картинки
     }
 
     override fun getItemCount(): Int {

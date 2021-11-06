@@ -32,7 +32,6 @@ class MovieCardsScreenViewModel(private val interactor: MovieInteractor) : BaseV
 
         return null
 
-
     }
 
 }

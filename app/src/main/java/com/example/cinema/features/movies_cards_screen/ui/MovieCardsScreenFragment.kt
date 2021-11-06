@@ -31,8 +31,6 @@ class MovieCardsScreenFragment: Fragment(R.layout.movie_cards_fragment) {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         }
 
-
-
     }
 
     private fun render(viewState: ViewState) {
@@ -40,12 +38,6 @@ class MovieCardsScreenFragment: Fragment(R.layout.movie_cards_fragment) {
         binding.progressBar.isVisible = viewState.isLoading
         adapterMovie.updateMovieCards(viewState.movies)
 
-
     }
-
-
-
-
-
 
 }

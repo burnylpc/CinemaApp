@@ -1,6 +1,5 @@
 package com.example.newsfeed.features.main_screen.ui
 
-import android.provider.ContactsContract
 import com.example.cinema.base.Event
 import com.example.cinema.features.movies_cards_screen.domain.model.MovieCardDomainModel
 
