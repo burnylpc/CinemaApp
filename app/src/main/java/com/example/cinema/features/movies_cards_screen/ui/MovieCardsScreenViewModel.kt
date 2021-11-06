@@ -4,6 +4,7 @@ import com.example.cinema.base.Event
 import com.example.cinema.features.movies_cards_screen.domain.MovieInteractor
 import com.example.newsfeed.base.BaseViewModel
 import com.example.newsfeed.features.main_screen.ui.DataEvent
+import com.example.newsfeed.features.main_screen.ui.UIEvent
 import com.example.newsfeed.features.main_screen.ui.ViewState
 
 class MovieCardsScreenViewModel(private val interactor: MovieInteractor) : BaseViewModel<ViewState>() {// : BaseViewModel<ViewState>() {
@@ -27,6 +28,10 @@ class MovieCardsScreenViewModel(private val interactor: MovieInteractor) : BaseV
             }
             is DataEvent.OnLoadMoviesSuccess -> {
                 return previousState.copy(movies = event.movies, isLoading = false)
+            }
+
+            is UIEvent.OnButtonAboutClick -> {
+                //**??
             }
         }
 
