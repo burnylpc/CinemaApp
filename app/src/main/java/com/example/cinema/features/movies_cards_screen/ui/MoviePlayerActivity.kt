@@ -18,11 +18,11 @@ class MoviePlayerActivity: AppCompatActivity() {
 
         val videoView = findViewById<VideoView>(R.id.videoView)
 
-        videoView.setVideoPath(httpVideo)
-
         mediaController = MediaController(this)
         mediaController?.setAnchorView(videoView)
         videoView.setMediaController(mediaController)
+        videoView.setVideoPath(httpVideo)
+        videoView.requestFocus()
         videoView.start()
 
     }
