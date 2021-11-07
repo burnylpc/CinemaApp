@@ -11,7 +11,7 @@ class MovieAboutActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.movie_about_fragment)
+        setContentView(R.layout.movie_about_activity)
 
         val textAbout = findViewById<TextView>(R.id.textAbout)
         textAbout.text = intent.extras?.get("overview").toString()

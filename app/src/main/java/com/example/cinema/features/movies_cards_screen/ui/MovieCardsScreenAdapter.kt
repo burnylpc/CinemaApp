@@ -25,6 +25,7 @@ class MovieCardsScreenAdapter(private var cards: List<MovieCardDomainModel>) : R
         val item_vote_average: TextView
 
         val buttonAbout: Button
+        val buttonWatch: Button
 
 
         init {
@@ -34,6 +35,7 @@ class MovieCardsScreenAdapter(private var cards: List<MovieCardDomainModel>) : R
             item_vote_average  = itemView.findViewById(R.id.item_vote_average)
 
             buttonAbout = itemView.findViewById(R.id.buttonAbout)
+            buttonWatch = itemView.findViewById(R.id.buttonWatch)
         }
     }
 
@@ -53,13 +55,21 @@ class MovieCardsScreenAdapter(private var cards: List<MovieCardDomainModel>) : R
         holder.item_genres.text = card.genres.map { it.genre }.joinToString(separator = ", ")
         holder.item_vote_average.text = card.voteAverage.toString() + " / " + card.voteCount.toString()
 
+
         holder.buttonAbout.setOnClickListener {
 
             val intent = Intent(holder.itemView.context, MovieAboutActivity::class.java)
             intent.putExtra("overview", card.overview)
             intent.putExtra("httpPosterPath", card.httpPosterPath)
-
             startActivity(holder.itemView.context, intent, null)
+        }
+
+
+        holder.buttonWatch.setOnClickListener {
+
+            val intent = Intent(holder.itemView.context, MoviePlayerActivity::class.java)
+            startActivity(holder.itemView.context, intent, null)
+
         }
     }
 

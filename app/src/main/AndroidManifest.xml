@@ -23,6 +23,7 @@
         </activity>
 
         <activity android:name=".features.movies_cards_screen.ui.MovieAboutActivity"/>
+        <activity android:name=".features.movies_cards_screen.ui.MoviePlayerActivity"/>
 
     </application>
 
