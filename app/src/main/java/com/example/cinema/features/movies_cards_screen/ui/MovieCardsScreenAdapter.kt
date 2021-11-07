@@ -68,6 +68,7 @@ class MovieCardsScreenAdapter(private var cards: List<MovieCardDomainModel>) : R
         holder.buttonWatch.setOnClickListener {
 
             val intent = Intent(holder.itemView.context, MoviePlayerActivity::class.java)
+            intent.putExtra("httpVideo", card.httpVideo)
             startActivity(holder.itemView.context, intent, null)
 
         }

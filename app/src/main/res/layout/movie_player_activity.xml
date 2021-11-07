@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".features.movies_cards_screen.ui.MoviePlayerActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
 
     <VideoView
-        android:id="@+id/videoView1"
+        android:id="@+id/videoView"
         android:layout_width="wrap_content"
         android:layout_height="363dp"
         app:layout_constraintBottom_toBottomOf="parent"
