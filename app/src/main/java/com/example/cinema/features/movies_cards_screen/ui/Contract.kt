@@ -16,6 +16,8 @@ sealed class UIEvent() : Event {
 
     data class OnButtonAboutClick(val card: MovieCardDomainModel) : UIEvent()
 
+    data class OnButtonWatchClick(val card: MovieCardDomainModel): UIEvent()
+
 }
 
 sealed class DataEvent() : Event {

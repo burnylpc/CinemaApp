@@ -15,7 +15,22 @@ import com.example.cinema.features.movies_cards_screen.domain.model.MovieCardDom
 
 class MovieCardsScreenAdapter(private var cards: List<MovieCardDomainModel>) : RecyclerView.Adapter<MovieCardsScreenAdapter.ViewHolder>() {
 
-    //private lateinit var context : Context
+    //Адаптер делегат --?
+//    private val yourAdapter = ListDelegationAdapter(
+//        yourItemDelegate(::onClicked)
+//    )
+//
+//    fun yourItemDelegate(onClicked: () -> Unit): AdapterDelegate<List<Item>> {
+//        return adapterDelegateViewBinding<YourItem, Item, YourItemBinding>(
+//            { layoutInflater, root -> YourItemBinding.inflate(layoutInflater, root, false) }) {
+//
+//            binding.root.setThrottledClickListener { onClicked() }
+//
+//            bind {
+//                binding.tvTitle.text = item.title
+//            }
+//        }
+//    }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
