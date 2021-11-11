@@ -31,8 +31,11 @@ class MovieCardsScreenViewModel(private val interactor: MovieInteractor) : BaseV
             }
 
             is UIEvent.OnButtonAboutClick -> {
-                //**??
                 processUiEvent(UIEvent.OnButtonAboutClick(event.card))
+            }
+
+            is UIEvent.OnButtonWatchClick -> {
+                processUiEvent(UIEvent.OnButtonWatchClick(event.card))
             }
         }
 
