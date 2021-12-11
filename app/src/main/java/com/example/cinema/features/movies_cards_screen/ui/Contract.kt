@@ -26,5 +26,12 @@ sealed class DataEvent() : Event {
 
     data class OnLoadMoviesSuccess(val movies: List<MovieCardDomainModel>) : DataEvent()
 
+    data class ErrorMoviesRequest(val errorMessage: String) : DataEvent()
+
+}
+
+sealed class SingleEvent : Event {
+    data class OpenAboutMovieCard(val movie: MovieCardDomainModel) : SingleEvent()
+    data class OpenWatchMovieCard(val movie: MovieCardDomainModel) : SingleEvent()
 }
 

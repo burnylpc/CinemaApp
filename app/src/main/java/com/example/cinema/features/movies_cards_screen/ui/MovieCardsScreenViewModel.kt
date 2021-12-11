@@ -1,13 +1,18 @@
 package com.example.cinema.features.movies_cards_screen.ui
 
 import com.example.cinema.base.Event
+import com.example.cinema.base.SingleLiveEvent
 import com.example.cinema.features.movies_cards_screen.domain.MovieInteractor
 import com.example.newsfeed.base.BaseViewModel
 import com.example.newsfeed.features.main_screen.ui.DataEvent
+import com.example.newsfeed.features.main_screen.ui.SingleEvent
 import com.example.newsfeed.features.main_screen.ui.UIEvent
 import com.example.newsfeed.features.main_screen.ui.ViewState
 
-class MovieCardsScreenViewModel(private val interactor: MovieInteractor) : BaseViewModel<ViewState>() {// : BaseViewModel<ViewState>() {
+
+class MovieCardsScreenViewModel(private val interactor: MovieInteractor) : BaseViewModel<ViewState>() {
+
+    val singleLiveEvent = SingleLiveEvent<SingleEvent>()
 
     init {
         processDataEvent(DataEvent.OnLoadData)
@@ -23,7 +28,13 @@ class MovieCardsScreenViewModel(private val interactor: MovieInteractor) : BaseV
                     onSuccess = { movies ->
                         processDataEvent(DataEvent.OnLoadMoviesSuccess(movies))
                     },
-                    onError = {}
+                    onError = {
+                        processDataEvent(
+                            DataEvent.ErrorMoviesRequest(
+                                it.localizedMessage ?: ""
+                            )
+                        )
+                    }
                 )
             }
             is DataEvent.OnLoadMoviesSuccess -> {
@@ -31,11 +42,11 @@ class MovieCardsScreenViewModel(private val interactor: MovieInteractor) : BaseV
             }
 
             is UIEvent.OnButtonAboutClick -> {
-                processUiEvent(UIEvent.OnButtonAboutClick(event.card))
+                singleLiveEvent.value = SingleEvent.OpenAboutMovieCard(movie = event.card)
             }
 
             is UIEvent.OnButtonWatchClick -> {
-                processUiEvent(UIEvent.OnButtonWatchClick(event.card))
+                singleLiveEvent.value = SingleEvent.OpenWatchMovieCard(movie = event.card)
             }
         }
 

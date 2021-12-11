@@ -1,7 +1,11 @@
 package com.example.cinema.features.movies_cards_screen.domain.model
 
+import android.os.Parcelable
+import androidx.versionedparcelable.ParcelField
 import com.example.cinema.features.movies_cards_screen.data.api.model.GenresModel
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class MovieCardDomainModel(
 
     val isAdult: Boolean,
@@ -18,4 +22,4 @@ data class MovieCardDomainModel(
     val voteAverage: Double,
     val voteCount: Int
 
-)
+) : Parcelable
